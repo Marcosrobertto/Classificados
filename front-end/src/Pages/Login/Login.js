@@ -1,11 +1,12 @@
-import React, { Component} from 'react';
+import React, { Component, useState} from 'react';
 import axios from 'axios';
 
 import './Login.css';
 
 import logo from '../../Assets/img/Logo.png'
 
-class Login extends Component{
+class Login extends Component {
+    
     constructor(props){
         super(props);
         this.state = {
@@ -23,17 +24,22 @@ class Login extends Component{
         })
 
         .then(resposta => {
-            if (resposta.status === 200){
-                localStorage.setItem('usuario-login', resposta.data.token)
 
-                console.log('Meu token é: ' + resposta.data.token)
-            }
+                if (resposta.data.sucesso) {
+                    
+                    localStorage.setItem('usuario-login', resposta.data.data.token)
+    
+                    console.log('Meu token é: ' + resposta.data.data.token)
+                }
+                else{
+                    console.log("E-mail ou senha inválidos!")
+                }
         })
     }
 
-    atualizaStateCampo = (campo) => {
-        this.setState({ [campo.target.name] : campo.target.value })
-    }
+        atualizaStateCampo = (campo) => {
+            this.setState({ [campo.target.name] : campo.target.value })
+        }   
 
     render(){
         return(
@@ -98,7 +104,7 @@ class Login extends Component{
                 </main>
             </div>
         )
-    }
-};
+    };
 
+}
 export default Login;
