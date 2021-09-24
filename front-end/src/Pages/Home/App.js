@@ -6,6 +6,8 @@ import "../../Assets/css/style.css";
 
 import logo from "../../Assets/img/Logo-Branca.png";
 
+import Rodape from '../../Components/Rodape/rodape';
+
 function App() {
   return (
     <div>
@@ -21,8 +23,14 @@ function App() {
           </nav>
         </div>
       </header>
+
+      <section>
+        <div>
+          <h1>Anuncios</h1>
+        </div>
+      </section>
       
-      
+      <Rodape />
     </div>
   );
 }

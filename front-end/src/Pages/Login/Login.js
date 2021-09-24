@@ -1,4 +1,4 @@
-import React, { Component, useState} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 
 import './Login.css';
@@ -18,7 +18,7 @@ class Login extends Component {
     efetuaLogin = (event) => {
         event.preventDefault();
 
-        axios.post('http://localhost:5000/v1/account/signin', {
+        axios.post('http://localhost:5000/v1/account/signup', {
             email : this.state.email,
             senha : this.state.senha
         })
@@ -50,7 +50,7 @@ class Login extends Component {
                         <div className="item__login">
                             <div className="row">
                                 <div className="item">
-                                    <img src={logo} className="icone__login" alt="logo da Gufi" />
+                                    <img src={logo} className="icone__login" alt="logo da Classificados" />
                                 </div>
                                 <div className="item" id="item__title">
                                     <p className="text__login" id="item__description">Faça login para continuar!</p>
